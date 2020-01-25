@@ -1,8 +1,21 @@
 # Jacks
+    ___          ___           ___           ___           ___     
+   /  /\        /  /\         /  /\         /__/|         /  /\    
+  /  /:/       /  /::\       /  /:/        |  |:|        /  /:/_   
+ /__/::\      /  /:/\:\     /  /:/         |  |:|       /  /:/ /\  
+ \__\/\:\    /  /:/~/::\   /  /:/  ___   __|  |:|      /  /:/ /::\ 
+    \  \:\  /__/:/ /:/\:\ /__/:/  /  /\ /__/\_|:|____ /__/:/ /:/\:\
+     \__\:\ \  \:\/:/__\/ \  \:\ /  /:/ \  \:\/:::::/ \  \:\/:/~/:/
+     /  /:/  \  \::/       \  \:\  /:/   \  \::/~~~~   \  \::/ /:/ 
+    /__/:/    \  \:\        \  \:\/:/     \  \:\        \__\/ /:/  
+    \__\/      \  \:\        \  \::/       \  \:\         /__/:/   
+                \__\/         \__\/         \__\/         \__\/    
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jacks`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Working in an app that has both a client side application and a server side
+application is not fun. We keep having to reinvent this world where one app
+passes through to the other, and static assets are truly static. Jacks is a Rack
+server that passes through to a React client side app. It is backed by webpack.
+Assets deploy to S3. Just add application and love.
 
 ## Installation
 
@@ -20,6 +33,7 @@ Or install it yourself as:
 
     $ gem install jacks
 
+
 ## Usage
 
 TODO: Write usage instructions here
@@ -33,7 +47,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/jacks. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/jacks/blob/master/CODE_OF_CONDUCT.md).
-
 
 ## License
 
