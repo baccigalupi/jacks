@@ -38,7 +38,6 @@ module Jacks
         end
 
         def log_file
-          
           File.join(app_data.root_dir, "app/log/#{app_data.app_env}.log")
         end
 

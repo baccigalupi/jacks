@@ -3,7 +3,6 @@
 require "spec_helper"
 
 RSpec.describe Jacks::Config::AppData::Logger do
-  
   it 'decorates a ::Logger on to the data bag as "logger"' do
     data = OpenStruct.new(
       environment: double(
