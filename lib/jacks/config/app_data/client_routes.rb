@@ -9,10 +9,7 @@ module Jacks
         end
 
         def routes
-          [
-            route("/app", "/"),
-            route("/admin", "/admin"),
-          ]
+          []
         end
 
         def route(client_path, html_path)

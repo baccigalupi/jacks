@@ -1,0 +1,5 @@
+app/log/*.log
+node_modules
+app/compiled_assets/*
+.env*
+app/client/manifest.local.json

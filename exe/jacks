@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/jacks/generator"
+
+command = ARGV.first
+path = ARGV[1]
+
+if command == "new"
+  Jacks::Generator.call(path)
+else
+  puts "Jacks doesn't understand your game!\nCommand `#{command}` not understood."
+  exit 1
+end

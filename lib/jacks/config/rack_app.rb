@@ -6,7 +6,7 @@ module Jacks
       def config
         load_app_data
         config_middleware
-        config_others
+        config
 
         rack_app.to_app
       end
@@ -17,7 +17,7 @@ module Jacks
 
       alias load_app_data app_data
 
-      def config_others
+      def config
         # no-op, template method for others
       end
 
@@ -56,8 +56,12 @@ module Jacks
       end
 
       def config_authentication
-        OmniauthAuthenticator::Config.new(rack_app, app_data).setup
+        config_omniauth
         rack_app.use(Jacks::Middlewares::JwtData)
+      end
+
+      def config_omniauth
+        raise NotImplementedError
       end
 
       def config_to_run_jacks

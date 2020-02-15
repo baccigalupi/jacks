@@ -1,17 +1,19 @@
 # Jacks
-```
-    ___          ___           ___           ___           ___     
-   /  /\        /  /\         /  /\         /__/|         /  /\    
-  /  /:/       /  /::\       /  /:/        |  |:|        /  /:/_   
+
+```txt
+    ___          ___           ___           ___           ___
+   /  /\        /  /\         /  /\         /__/|         /  /\
+  /  /:/       /  /::\       /  /:/        |  |:|        /  /:/_
  /__/::\      /  /:/\:\     /  /:/         |  |:|       /  /:/ /\  
- \__\/\:\    /  /:/~/::\   /  /:/  ___   __|  |:|      /  /:/ /::\ 
+ \__\/\:\    /  /:/~/::\   /  /:/  ___   __|  |:|      /  /:/ /::\
     \  \:\  /__/:/ /:/\:\ /__/:/  /  /\ /__/\_|:|____ /__/:/ /:/\:\
      \__\:\ \  \:\/:/__\/ \  \:\ /  /:/ \  \:\/:::::/ \  \:\/:/~/:/
-     /  /:/  \  \::/       \  \:\  /:/   \  \::/~~~~   \  \::/ /:/ 
+     /  /:/  \  \::/       \  \:\  /:/   \  \::/~~~~   \  \::/ /:/
     /__/:/    \  \:\        \  \:\/:/     \  \:\        \__\/ /:/  
-    \__\/      \  \:\        \  \::/       \  \:\         /__/:/   
-                \__\/         \__\/         \__\/         \__\/    
+    \__\/      \  \:\        \  \::/       \  \:\         /__/:/
+                \__\/         \__\/         \__\/         \__\/
 ```
+
 Working in an app that has both a client side application and a server side
 application is not fun. We keep having to reinvent this world where one app
 passes through to the other, and static assets are truly static. Jacks is a Rack
@@ -34,6 +36,16 @@ Or install it yourself as:
 
     $ gem install jacks
 
+
+Getting the gem is really just the begging though. Next you need to create a
+Jacks app via the command line:
+
+    $ # Use an existing directory
+    $ cd my_jacks_app
+    $ jacks new .
+
+    $ # --or-- have Jacks create one
+    $ jacks new the_next_great_american_app
 
 ## Usage
 

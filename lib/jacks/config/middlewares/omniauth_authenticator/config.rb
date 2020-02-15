@@ -14,9 +14,7 @@ module Jacks
         setup_logging
         add_cookie_sessions
         add_developer_strategy
-        add_other_strategies
-
-        map_callbacks
+        configure_strategies
       end
 
       private
@@ -33,26 +31,33 @@ module Jacks
       end
 
       def add_developer_strategy
-        rack_app.use(OmniAuth::Strategies::Developer) if environment.local?
+        return if !environment.local?
+        config(:developer, OmniAuth::Strategies::Developer)
       end
 
-      def add_other_strategies
-        rack_app.use(
-          OmniAuth::Strategies::GoogleOauth2,
-          ENV.fetch("GOOGLE_CLIENT_ID"),
-          ENV.fetch("GOOGLE_CLIENT_SECRET")
-        )
+      def config(key, *strategy_args)
+        rack_app.use(*strategy_args)
+        rack_app.map("/auth/#{key}/callback") { 
+          use Jacks::Config::Middlewares::OmniauthAuthenticator::App
+        }
       end
 
-      def map_callbacks
-        urls = [
-          "/auth/google_oauth2/callback",
-        ]
-        urls << "/auth/developer/callback" if environment.local?
-
-        urls.each do |url|
-          rack_app.map(url) { use OmniauthAuthenticator::App }
-        end
+      def configure_strategies
+        # Examples:
+        #
+        # config(
+        #   :google_oauth2,
+        #   OmniAuth::Strategies::GoogleOauth2,
+        #   ENV.fetch("GOOGLE_CLIENT_ID"),
+        #   ENV.fetch("GOOGLE_CLIENT_SECRET")
+        # )
+        #
+        # config(
+        #   :github,
+        #   OmniAuth::Strategies::Github,
+        #   ENV.fetch("GITHUB_CLIENT_ID"),
+        #   ENV.fetch("GITHUB_CLIENT_SECRET")
+        # )
       end
 
       def environment
