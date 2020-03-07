@@ -50,7 +50,7 @@ module Jacks
 
       sequel_contents = File.read("#{root}/app/config/app_data/sequel.rb")
       sequel_contents = sequel_contents.gsub("jacks_app", name)
-      File.open("#{root}/app/config/app_data/sequel.rb") do |file|
+      File.open("#{root}/app/config/app_data/sequel.rb", "w") do |file|
         file.write(sequel_contents)
       end
     end

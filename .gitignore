@@ -6,7 +6,7 @@
 /pkg/
 /spec/reports/
 /tmp/
-
+spec/support/fixtures/generated_app
 # IDE related gunk
 .vscode
 

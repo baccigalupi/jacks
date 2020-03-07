@@ -1,15 +1,11 @@
+require "delegate"
 require "forwardable"
 require "json"
-require "ostruct"
 require "logger"
+require "ostruct"
+require 'rake'
 
-require "aws-sdk-s3"
-require "jwt"
-require "mime-types"
-require "pg"
-require "rack"
-require "rest-client"
-require "sequel"
+require "bundler/setup"
 
 require "jacks/version"
 require "jacks/app"

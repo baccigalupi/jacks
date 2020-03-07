@@ -1,0 +1,13 @@
+require 'bundler/setup'
+require 'jacks'
+require 'rake'
+require 'rake/tasklib'
+
+require 'jacks/tasks/asset_tasks'
+JacksTasks::Assets.generate_all
+
+require 'jacks/tasks/deploy_tasks'
+JacksTasks::Deploy.generate_all
+
+require 'jacks/tasks/db_tasks'
+JacksTasks::DB.generate_all

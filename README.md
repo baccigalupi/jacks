@@ -37,6 +37,10 @@ Or install it yourself as:
     $ gem install jacks
 
 
+## Usage
+
+### Create a new jacks app with the command line utility
+
 Getting the gem is really just the begging though. Next you need to create a
 Jacks app via the command line:
 
@@ -47,9 +51,21 @@ Jacks app via the command line:
     $ # --or-- have Jacks create one
     $ jacks new the_next_great_american_app
 
-## Usage
+### Get to work in your new Jacks app
 
-TODO: Write usage instructions here
+#### Switching to the right Ruby version
+
+Your Jacks app starts with the latest supported version of Ruby. It's designated both in your `Gemfile` and the `.ruby-version`. Feel free to experiment with other Ruby versions if you are limited in production on your Ruby version, or you just want to experiment.
+
+Change directories into the new application directory at the root. If you are using a ruby version manager that is detects ruby version and gemset information, `cd`ing into the directory should trigger switching to the right version of Ruby and setting up an isolated gemset.
+
+If you aren't using such a version manager. Lookup the Ruby version in `.ruby-version` and make sure you are using that version.
+
+#### Setup the database
+
+Jacks doesn't work with a `database.yml`, it assumes you are going to either put custom environmental variables in place, or use some default setting. If you do want to do your own database name or other customization, checkout `app/config/app_data/sequel.rb`.
+
+Once you are satisfied with the connection variables, you can run some rake tasks for setting up your database: ``
 
 ## Development
 

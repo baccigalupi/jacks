@@ -1,0 +1,6 @@
+#!/bin/bash
+
+gem install bundler
+bundle install
+
+rake db:create
