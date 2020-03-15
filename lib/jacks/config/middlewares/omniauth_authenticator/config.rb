@@ -31,13 +31,13 @@ module Jacks
       end
 
       def add_developer_strategy
-        return if !environment.local?
+        return unless environment.local?
         config(:developer, OmniAuth::Strategies::Developer)
       end
 
       def config(key, *strategy_args)
         rack_app.use(*strategy_args)
-        rack_app.map("/auth/#{key}/callback") { 
+        rack_app.map("/auth/#{key}/callback") {
           use Jacks::Config::Middlewares::OmniauthAuthenticator::App
         }
       end

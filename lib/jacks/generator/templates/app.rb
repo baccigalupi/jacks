@@ -5,22 +5,12 @@ $LOAD_PATH.unshift(app_path) unless $LOAD_PATH.include?(app_path)
 
 require "jacks"
 
-module AppLoader
-  def self.root_dir
-    File.expand_path(__dir__)
-  end
-
-  def self.require_dir(app_dir)
-    Dir[
-      File.join(root_dir, "app", app_dir, "**/*.rb")
-    ].each { |file| require file }
-  end
-end
+loader = Jacks::AppLoader.new(__dir__)
 
 require("config/rack_app")
-AppLoader.require_dir("config/app_data")
-AppLoader.require_dir("config/middlewares")
+loader.require_dir("config/app_data")
+loader.require_dir("config/middlewares")
 
-AppLoader.require_dir("server/controllers")
-AppLoader.require_dir("server/db")
-AppLoader.require_dir("server/domain")
+loader.require_dir("server/controllers")
+loader.require_dir("server/db")
+loader.require_dir("server/domain")

@@ -6,19 +6,19 @@ module Jacks
       def config
         load_app_data
         config_middleware
-        config
+        config_app
 
         rack_app.to_app
       end
 
       def app_data
-        @app_data = Config::AppData.load
+        @app_data = ::Config::AppData.load
       end
 
       alias load_app_data app_data
 
-      def config
-        # no-op, template method for others
+      def config_app
+        # template method for subclasses
       end
 
       def environment

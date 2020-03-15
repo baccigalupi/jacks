@@ -1,4 +1,3 @@
-
 module Jacks
   module Tasks
     class Db
@@ -31,28 +30,28 @@ module Jacks
       def generate_migration(name = "name_this_migration")
         timestamp = Time.now.to_i
         filename = "#{migrations_path}/#{timestamp}_#{name}.rb"
-        
+
         File.open(filename, "w") do |file|
           file.write(migration_template)
         end
       end
 
       def schema_dump
-        return if app_data.app_env == "production"
+        return if current_environment_app_data.app_env == "production"
 
-        `sequel #{app_data.sequel.url} --dump-migration > #{db_path}/schema.rb`
+        `sequel #{current_environment_app_data.sequel.url} --dump-migration > #{db_path}/schema.rb`
       end
 
       private
 
       def environments_app_data
-        @environments_app_data ||= environments.map do |app_env|
-          Config::AppData.load(app_env)
-        end
+        @environments_app_data ||= environments.map { |app_env|
+          ::Config::AppData.load(app_env)
+        }
       end
 
-      def app_data
-        Config::AppData.load
+      def current_environment_app_data
+        ::Config::AppData.load
       end
 
       def environments
@@ -66,7 +65,7 @@ module Jacks
 
       def db_path
         File.expand_path(
-          File.join(app_data.root, "app/config/db")
+          File.join(current_environment_app_data.root, "app/config/db")
         )
       end
 

@@ -1,5 +1,5 @@
-require 'dotenv'
-require 'jacks/cdn/s3'
+require "dotenv"
+require "jacks/cdn/s3"
 
 module Jacks
   module Tasks
@@ -22,7 +22,7 @@ module Jacks
       private
 
       def app_data
-        Config::AppData.load("production", root)
+        ::Config::AppData.load("production", root)
       end
 
       def upload
@@ -30,7 +30,7 @@ module Jacks
           "#{root}/app/compiled_assets",
           app_data.manifest
         ).upload_assets!
-      end    
+      end
     end
   end
 end

@@ -1,8 +1,8 @@
 module Config
   class RackApp < Jacks::Config::RackApp
-    def config
+    def config_app
       # Add your middleware here
-      # Example: 
+      # Example:
       #
       # rack_app.use(Rack::Throttle::Interval)
     end

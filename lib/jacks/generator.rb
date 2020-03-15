@@ -1,21 +1,20 @@
-require 'fileutils'
+require "fileutils"
 
 module Jacks
   class Generator
-    attr_reader :name, :root
+    attr_reader :root
 
     def self.call(path)
       new(path).call
     end
 
     def initialize(path)
-      path = "#{Dir.pwd}/#{path}" if !path.start_with?('/')
+      path = "#{Dir.pwd}/#{path}" unless path.start_with?("/")
       @root = File.expand_path(path)
-      @name = root.split('/').last
     end
 
     def name
-      root.split('/').last
+      root.split("/").last
     end
 
     def call

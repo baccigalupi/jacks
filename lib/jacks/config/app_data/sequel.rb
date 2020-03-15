@@ -57,7 +57,7 @@ module Jacks
         end
 
         def database_prefix
-          "dykaspora"
+          "jacks"
         end
 
         def env
