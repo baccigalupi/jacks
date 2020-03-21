@@ -40,7 +40,7 @@ RSpec.describe Jacks::Config::AppData::Sequel do
 
     connector = Jacks::Config::AppData::Sequel.new(data)
 
-    expect(connector.url).to match(%r{postgres://.+@localhost:5432/dykaspora_test})
+    expect(connector.url).to match(%r{postgres://.+@localhost:5432})
   end
 
   it "uses custom envars when no database url is present, but they are" do
@@ -61,7 +61,7 @@ RSpec.describe Jacks::Config::AppData::Sequel do
     connector = Jacks::Config::AppData::Sequel.new(data)
 
     expect(connector.url).to eq(
-      "postgres://jacks:play@123.234.45.67:1234/dykaspora_test"
+      "postgres://jacks:play@123.234.45.67:1234/jacks_test"
     )
   end
 end
