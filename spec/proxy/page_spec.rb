@@ -14,7 +14,18 @@ RSpec.describe Jacks::Proxy::Page do
     expect(finder.matching_page).to eq("/index.8b313f72.html")
   end
 
-  it "maps nested pages to the right html" do
+  it "maps nested pages to non-index page html if available" do
+    manifest = {
+      "admin/dashboard.8b313f72.html" => "admin/dashboard.8b313f72.html",
+    }
+    path = "/admin/dashboard"
+
+    finder = Jacks::Proxy::Page.new(path, manifest)
+
+    expect(finder.matching_page).to eq("/admin/dashboard.8b313f72.html")
+  end
+
+  it "maps nested pages to the nested index html" do
     manifest = {
       "admin/dashboard/index.8b313f72.html" =>
         "admin/dashboard/index.8b313f72.html",

@@ -11,6 +11,8 @@ module Jacks
       end
 
       def matching_page
+        return matching_named_page if matching_named_page
+
         matching_index_html ? "/#{matching_index_html}" : not_found_page
       end
 
@@ -27,6 +29,14 @@ module Jacks
       def index_matcher
         page = path == "/" ? "" : path
         Regexp.new("^#{page}\/index\.[a-f0-9]+\.html$")
+      end
+
+      def matching_named_page
+        return @matching_named_page if defined?(@matching_named_page)
+
+        named_path = path[0] == '/' ? path[1..] : path
+        match = matching_page_html(named_path)
+        @matching_named_page = match ? "/#{match}" : nil
       end
 
       def matching_index_html
