@@ -4,7 +4,7 @@
     "assets:dev": "npm run assets:clean; APP_ENV=development node_modules/.bin/webpack --mode development",
     "assets:prod": "npm run assets:clean; APP_ENV=production node_modules/.bin/webpack --mode production",
     "server:assets": "npm run assets:clean; APP_ENV=development node_modules/.bin/webpack-dev-server --port 5000",
-    "server:json": "APP_ENV=development rackup -p 3000",
+    "server:json": "APP_ENV=development bundle exec rackup -p 3000",
     "start": "node_modules/.bin/concurrently \"npm run server:assets\" \"npm run server:json\"",
     "test": "jest",
     "test:ci": "npm test && bundle exec rspec && bundle exec rubocop && npm run prettier",

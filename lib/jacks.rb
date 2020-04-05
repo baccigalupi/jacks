@@ -1,3 +1,5 @@
+puts 'Loading jacks libraries'
+
 require "delegate"
 require "forwardable"
 require "json"

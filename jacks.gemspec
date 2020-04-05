@@ -8,11 +8,9 @@ Gem::Specification.new do |spec|
 
   spec.summary = "A fun to develop, best practices, ruby/js, server/client app"
   spec.description = <<~TEXT
-    Working in an app that has both a client side application and a server side
-    application is not fun. We keep having to reinvent this world where one app
-    passes through to the other, and static assets are truly static. Jacks is a Rack
+    Jacks is A fun to develop, best practices, ruby/js, server/client app. It is a Rack
     server that passes through to a React client side app. It is backed by webpack.
-    Assets deploy to S3. Just add application and love.
+    Assets deploy to S3. Just add application logic and love.
   TEXT
   spec.homepage = "https://github.com/baccigalupi/jacks"
   spec.license = "MIT"
