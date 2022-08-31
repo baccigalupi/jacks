@@ -40,7 +40,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "sequel", "~> 5.27"
 
   spec.add_runtime_dependency "jwt", "~> 2.2"
-  spec.add_runtime_dependency "omniauth", "~> 1.9"
+  spec.add_runtime_dependency "omniauth", ">= 1.9", "< 3.0"
 
   spec.add_runtime_dependency "aws-sdk-s3", "~> 1.59"
 end
