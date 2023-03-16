@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "dotenv", "~> 2.7"
   spec.add_runtime_dependency "mime-types", "~> 3.3"
   spec.add_runtime_dependency "puma", "~> 4.3"
-  spec.add_runtime_dependency "rack", "~> 2.0"
+  spec.add_runtime_dependency "rack", ">= 2", "< 4"
   spec.add_runtime_dependency "rake", "~> 13.0"
   spec.add_runtime_dependency "rest-client", "~> 2.1"
 
